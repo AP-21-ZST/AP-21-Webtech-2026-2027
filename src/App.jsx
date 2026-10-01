@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import CourseCard from './components/CourseCard'
 import Technology from './components/Technology'
+import Zdarzenie from './components/Zdarzenie'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <CourseCard />
       <Technology />
+      <Zdarzenie />
       <Footer />
     </div>
   )
