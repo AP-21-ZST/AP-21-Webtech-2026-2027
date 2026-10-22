@@ -3,11 +3,20 @@ import { useState } from 'react'
 function Technology({ name, category, hours, image }) {
   const [likes, setLikes] = useState(0)
   const [isLearning, setIsLearning] = useState(false)
+  const [visible, setVisible] = useState(false)
+
+  function toggleDetails() {
+    setVisible(!visible)
+  }
 
   function showTechnology() {
     console.log('Technologia: ' + name)
     console.log('Kategoria: ' + category)
     console.log('Czas nauki: ' + hours + ' godz.')
+  }
+
+  function showName(technologyName) {
+    console.log(technologyName)
   }
 
   return (
@@ -22,10 +31,22 @@ function Technology({ name, category, hours, image }) {
       <div className="technology-content">
         <div className="technology-heading">
           <h2>{name}</h2>
-          <span className="technology-badge">{category}</span>
         </div>
 
-        <p className="technology-hours">Czas nauki: {hours} godz.</p>
+        <button
+          className="button button-secondary details-toggle"
+          onClick={toggleDetails}
+          aria-expanded={visible}
+        >
+          {visible ? 'Ukryj szczegóły' : 'Pokaż szczegóły'}
+        </button>
+
+        {visible && (
+          <div className="technology-details">
+            <span className="technology-badge">{category}</span>
+            <p className="technology-hours">Czas nauki: {hours} godz.</p>
+          </div>
+        )}
 
         <div className="technology-state">
           <p>Polubienia: <strong>{likes}</strong></p>
@@ -46,6 +67,9 @@ function Technology({ name, category, hours, image }) {
           </button>
           <button className="button button-text" onClick={showTechnology}>
             Pokaż informacje w konsoli
+          </button>
+          <button className="button button-text" onClick={() => showName(name)}>
+            Wypisz nazwę
           </button>
         </div>
       </div>
