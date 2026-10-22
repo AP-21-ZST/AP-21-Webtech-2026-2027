@@ -10,8 +10,8 @@ const technologies = [
   { id: 6, name: 'Bootstrap', category: 'Frontend', hours: 15, image: 'bootstrap.webp' },
   { id: 7, name: 'CSS', category: 'Frontend', hours: 20, image: 'css.webp' },
   { id: 8, name: 'HTML', category: 'Frontend', hours: 10, image: 'html.webp' },
-  { id: 9, name: 'PHP', category: 'Backend', hours: 35, image: 'php.webp' },
-]
+  { id: 9, name: 'PHP', category: 'Backend', hours: 35, image: 'php.webp' }
+];
 
 function App() {
   return (
