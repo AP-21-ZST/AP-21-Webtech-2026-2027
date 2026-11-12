@@ -1,0 +1,128 @@
+
+import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.css";
+
+function App() {
+  const [strona, setStrona] = useState("");
+  const [uzytkownik, setUzytkownik] = useState("");
+  const [haslo, setHaslo] = useState("");
+  const [generuj, setGeneruj] = useState(true);
+  const [pokazHaslo, setPokazHaslo] = useState(false);
+
+  const [wynik, setWynik] = useState(null);
+
+  const zapiszDane = (e) => {
+    e.preventDefault();
+
+    const dane = {
+      strona: strona,
+      uzytkownik: uzytkownik,
+      haslo: haslo,
+      generuj: generuj
+    };
+
+    setWynik(dane);
+  };
+
+  return (
+    <main className="container mt-4">
+      <h2>Menedżer haseł - wykonał NUMER_ZDAJĄCEGO</h2>
+
+      <form onSubmit={zapiszDane}>
+        <div className="mb-3">
+          <label htmlFor="strona" className="form-label">
+            Adres WWW:
+          </label>
+          <input
+            type="text"
+            id="strona"
+            className="form-control"
+            placeholder="Podaj adres strony"
+            value={strona}
+            onChange={(e) => setStrona(e.target.value)}
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="uzytkownik" className="form-label">
+            Login:
+          </label>
+          <input
+            type="text"
+            id="uzytkownik"
+            className="form-control"
+            placeholder="Podaj login"
+            value={uzytkownik}
+            onChange={(e) => setUzytkownik(e.target.value)}
+          />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="haslo" className="form-label">
+            Hasło:
+          </label>
+          <input
+            type={pokazHaslo ? "text" : "password"}
+            id="haslo"
+            className="form-control"
+            value={haslo}
+            onChange={(e) => setHaslo(e.target.value)}
+            disabled={generuj}
+          />
+        </div>
+
+        <div className="form-check mb-3">
+          <input
+            type="checkbox"
+            id="pokazHaslo"
+            className="form-check-input"
+            checked={pokazHaslo}
+            onChange={(e) => setPokazHaslo(e.target.checked)}
+          />
+          <label htmlFor="pokazHaslo" className="form-check-label">
+            Pokaż hasło
+          </label>
+        </div>
+
+        <div className="form-check mb-3">
+          <input
+            type="checkbox"
+            id="generuj"
+            className="form-check-input"
+            checked={generuj}
+            onChange={(e) => setGeneruj(e.target.checked)}
+          />
+          <label htmlFor="generuj" className="form-check-label">
+            Generuj hasło automatycznie
+          </label>
+        </div>
+
+        <button type="submit" className="btn btn-primary">
+          Zapisz
+        </button>
+      </form>
+
+      <div className="mt-3">
+        {wynik && (
+          <>
+            <p className="p-2 text-primary lead">
+              Adres: {wynik.strona}
+            </p>
+
+            <p className="p-2">
+              Login: {wynik.uzytkownik}
+            </p>
+
+            <p className="p-2">
+              {wynik.generuj
+                ? "Hasło automatycznie generowane"
+                : "Hasło: " + wynik.haslo}
+            </p>
+          </>
+        )}
+      </div>
+    </main>
+  );
+}
+
+export default App;
