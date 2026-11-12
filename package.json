@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "zadanie-egzaminacyjne",
+=======
+  "name": "zadanko",
+>>>>>>> ac90ac7ab7cd35a4f027c38e025cc41f47b4bdaa
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +14,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "bootstrap": "5.3",
+=======
+>>>>>>> ac90ac7ab7cd35a4f027c38e025cc41f47b4bdaa
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
@@ -19,10 +26,18 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
+<<<<<<< HEAD
     "eslint": "^10.14.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
     "globals": "^17.13.0",
     "vite": "^8.3.6"
+=======
+    "eslint": "^10.13.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.7",
+    "globals": "^17.13.0",
+    "vite": "^8.3.4"
+>>>>>>> ac90ac7ab7cd35a4f027c38e025cc41f47b4bdaa
   }
 }
